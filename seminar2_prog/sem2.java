@@ -117,8 +117,8 @@ public class sem2 {
         StringBuilder strbld = new StringBuilder();
         try {
             String[] objs = FileReader("task3.data", StandardCharsets.UTF_8).replace("[", "")
-                                                                                 .replace("]", "")
-                                                                                 .split("},");
+                                                                            .replace("]", "")
+                                                                            .split("},");
             for (String obj: objs) {
                 String[] fields = obj.replaceAll("[{}\"]", "")
                                      .split(",");
