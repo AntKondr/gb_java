@@ -18,7 +18,7 @@ public class sem2 {
 
     public static void main(String[] args) {
         try {
-            FileHandler fileH = new FileHandler("sem2_log.log");
+            FileHandler fileH = new FileHandler("sem2_log.log", true);
             fileH.setFormatter(simple_formatter);
             logger.addHandler(fileH);
             // task1();
@@ -113,17 +113,17 @@ public class sem2 {
     // Студент Краснов получил 5 по предмету Физика.
     public static void task3() {
         int i;
-        String[] word = {"\u0421\u0442\u0443\u0434\u0435\u043D\u0442", " \u043F\u043E\u043B\u0443\u0447\u0438\u043B", " \u043F\u043E \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u0443"};
+        String[] word = {"Студент", " получил", " по предмету"};
         StringBuilder strbld = new StringBuilder();
         try {
             String[] objs = FileReader("task3.data", StandardCharsets.UTF_8).replace("[", "")
                                                                                  .replace("]", "")
                                                                                  .split("},");
-            for (String obj : objs) {
+            for (String obj: objs) {
                 String[] fields = obj.replaceAll("[{}\"]", "")
                                      .split(",");
                 i = 0;
-                for (String field : fields) {
+                for (String field: fields) {
                     strbld.append(word[i]);
                     i++;
                     strbld.append(" " + field.split(":")[1]);
