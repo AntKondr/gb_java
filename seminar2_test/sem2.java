@@ -1,16 +1,25 @@
 import java.util.Scanner;
 import java.util.Arrays;
 import java.util.logging.Logger;
-import java.util.logging.Level;
+import java.util.logging.FileHandler;
 import java.util.logging.SimpleFormatter;
+import java.util.logging.Level;
 
 public class sem2 {
     private static Scanner scaner = new Scanner(System.in);
     private static Logger logger = Logger.getLogger(sem2.class.getName());
     private static SimpleFormatter simple_formatter = new SimpleFormatter();
     public static void main(String[] args) {
-        task1();
-        task2();
+        try {
+            FileHandler fileH = new FileHandler("sem2_log.log", true);
+            fileH.setFormatter(simple_formatter);
+            logger.addHandler(fileH);
+            task1();
+            task2();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
